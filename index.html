@@ -8,14 +8,19 @@
     <title>Rocket Business</title>
 </head>
 <body>
-    <div class="video-container">
-        <img src="img/back_video.png" alt="back">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-            <button class="video-container-button" width="192" height="33">
-                <span>Смотреть видео</span>
-                <img src="img/play.svg" alt="">
-            </button>
-        </a>
+    <div class="video-container" id="videoContainer">
+        <img src="img/back_video.png" alt="back" class="video-container__thumbnail">
+        <button class="video-container__play-button" id="playButton">
+            <span>Смотреть видео</span>
+            <img src="img/play.svg" alt="">
+        </button>
+        <iframe class="video-container__iframe" id="videoIframe"
+        src=""
+        frameborder="0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen>
+</iframe>
+
     </div>
 
     <div class="product-cards-container">
@@ -40,7 +45,6 @@
             </div>
         </div>
 
-        <!-- Правая колонка: Голубика и Морковь -->
         <div class="product-column">
             <div class="card-2">
                 <img src="img/2.png" alt="Голубика" class="product-image" />
@@ -159,8 +163,18 @@
         </div>
     </div>
 
-    <script src="js/modal.js"></script>
-    <script src="js/script.js"></script>
+    <script src="modal.js"></script>
+    <script src="script.js"></script>
+    <script>  document.addEventListener('DOMContentLoaded', function() {
+        const videoContainer = document.getElementById('videoContainer');
+        const playButton = document.getElementById('playButton');
+        const videoIframe = document.getElementById('videoIframe');
+    
+        playButton.addEventListener('click', function() {
+          videoIframe.src = "https://rutube.ru/play/embed/5b8160fb29edfb3b8043f0e462671d44";
+          videoContainer.classList.add('active');
+        });
+      });</script>
 
 </body>
 </html>
